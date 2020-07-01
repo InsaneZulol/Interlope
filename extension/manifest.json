@@ -1,7 +1,7 @@
 {
     "name": "Interlope",
     "version": "1.0",
-    "description": "control media with user input from beyond chrome",
+    "description": "Control media with input from beyond chrome",
     "manifest_version": 2,
     "background": {
         "scripts": [
@@ -18,8 +18,8 @@
         "https://*/"
       ],
       "icons": {
-        "16": "icons/16.png",
-        "48": "icons/48.png",
-        "128": "icons/128.png"
+        "16": "icons/16_play.png",
+        "48": "icons/48_play.png",
+        "128": "icons/128_play.png"
       }
   }

@@ -3,7 +3,7 @@ chrome.runtime.onInstalled.addListener(function() {
 
     chrome.contextMenus.create({
       id: "contextMenu",
-      title: "Pause all",
+      title: "\u2759\u2759 Pause all...",
       contexts: ["all"]
     });
   });
@@ -23,12 +23,12 @@ function contextClickHandler(info, tab) {
 
 function onPause() {
     chrome.contextMenus.update("contextMenu", {
-        title: "Resume in pinned tab", 
+        title: "\u25B6 Resume in pinned tab...", 
     });
 }
 
 function onPlay() {
     chrome.contextMenus.update("contextMenu", {
-        title: "Pause all", 
+        title: "\u2759\u2759 Pause all...", 
     });
 }
