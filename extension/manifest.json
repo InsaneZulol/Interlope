@@ -5,9 +5,9 @@
     "manifest_version": 2,
     "background": {
         "scripts": [
-          "background.js",
           "context_menu.js",
-          "player_controller.js"
+          "player_controller.js",
+          "tab_controller.js"
         ],
         "persistent": false
       },

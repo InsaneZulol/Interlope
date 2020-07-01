@@ -1,10 +1,9 @@
-var contextItemTitle = "Pause all";
-// todo: add context menu only when there are streams/yt in bg
+// todo: show context menu only when there is yt in bg
 chrome.runtime.onInstalled.addListener(function() {
 
     chrome.contextMenus.create({
       id: "contextMenu",
-      title: contextItemTitle,
+      title: "Pause all",
       contexts: ["all"]
     });
   });
@@ -12,8 +11,14 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.contextMenus.onClicked.addListener(contextClickHandler);
 
 function contextClickHandler(info, tab) {
-    
-    getPlayingTabs(pause);
+    getPlaybackState(function(state) {
+        if(state == ENUMLEN_PLAYBACKSTATE_ANY) {
+            getPlayingTabs(pause);
+        }
+        if(state == ENUM_PLAYBACKSTATE_NONE) {
+            getPinnedTab(play);
+        }
+    });
 }
 
 function onPause() {
