@@ -1,5 +1,5 @@
-const ENUM_PLAYBACKSTATE_NONE   = 0,
-ENUMLEN_PLAYBACKSTATE_ANY = 1;
+const ENUM_PLAYBACKSTATE_NONE = 0,
+    ENUMLEN_PLAYBACKSTATE_ANY = 1;
 
 let playbackState = ENUM_PLAYBACKSTATE_NONE;
 
@@ -22,9 +22,13 @@ function play(tab) {
 
 // returns enum value ENUM_PLAYBACKSTATE_NONE / ENUMLEN_PLAYBACKSTATE_ANY
 // through the callback.
+//
+// this query sucks, chrome has delay on audible status.
+// Later on change that to sendMessage to content script and
+// get players state from it's response.
 function getPlaybackState(callback) {
     chrome.tabs.query({ currentWindow: true, audible: true }, function (qTabs) {
-        if (qTabs.length == 0) { 
+        if (qTabs.length == 0) {
             playbackState = ENUM_PLAYBACKSTATE_NONE;
             callback(playbackState);
         }
