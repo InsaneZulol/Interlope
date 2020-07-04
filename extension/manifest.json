@@ -1,6 +1,6 @@
 {
     "name": "Interlope",
-    "version": "1.0",
+    "version": "0.5",
     "description": "Control media with input from beyond chrome",
     "manifest_version": 2,
     "background": {
