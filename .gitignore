@@ -5,3 +5,7 @@
 /client/.vs/client/v16
 /client/x64/Release/qmake
 /client/x64/Debug
+/client/debug
+/client/GeneratedFiles
+/client/release/qmake
+/client/client.pro.user

@@ -8,7 +8,10 @@ int main(int argc, char *argv[])
 #endif
 
     QGuiApplication app(argc, argv);
-
+    app.setOrganizationName("interlope");
+    app.setOrganizationDomain("interlope.com");
+    app.setApplicationName("InterlopeClient");
+	
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
