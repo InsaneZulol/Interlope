@@ -37,10 +37,31 @@
       <Extensions>*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
+    <Filter Include="vendor">
+      <UniqueIdentifier>{b23f7348-680c-4b15-8d61-a090b39f3530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\qhotkey">
+      <UniqueIdentifier>{a36aadd4-2fe5-4730-9189-476c99ce6d3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\qhotkey\Sources">
+      <UniqueIdentifier>{5ee325e2-201f-4d1f-9ad3-9bddb89dadb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\qhotkey\Header">
+      <UniqueIdentifier>{3e9aba06-62f6-4ba9-aaf6-c57212c9412c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\images">
+      <UniqueIdentifier>{84eaa984-4d14-4639-ba75-634c92d28d87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey.cpp">
+      <Filter>vendor\qhotkey\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey_win.cpp">
+      <Filter>vendor\qhotkey\Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,14 +70,25 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="icon.png">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="main.qml">
       <Filter>Resource Files</Filter>
     </None>
     <QtRcc Include="qml.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+    <None Include="vendor\de\skycoder42\qhotkey\QHotkey\QHotkey">
+      <Filter>vendor\qhotkey\Header</Filter>
+    </None>
+    <None Include="icon.png">
+      <Filter>Resource Files\images</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey.h">
+      <Filter>vendor\qhotkey\Header</Filter>
+    </QtMoc>
+    <QtMoc Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey_p.h">
+      <Filter>vendor\qhotkey\Header</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

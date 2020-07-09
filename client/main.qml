@@ -12,7 +12,7 @@ ApplicationWindow {
     width: 640
     height: 480
     color: "silver"
-    onClosing:{
+    onClosing: {
         close.accepted = false
         onTriggered: windowRoot.hide()
     }
@@ -20,6 +20,7 @@ ApplicationWindow {
     SystemTrayIcon {
         visible: true
         iconSource: "qrc:/icon.png"
+        // toggle show/hide main window
         onActivated: {
             if(reason === SystemTrayIcon.Trigger) {
                 if(windowRoot.visible === true) {
@@ -35,7 +36,6 @@ ApplicationWindow {
         menu: Menu {
             MenuItem {
                 text: qsTr("Toggle playback")
-                onTriggered: Qt.quit()
             }
             MenuItem {
                 text: qsTr("Settings...")
