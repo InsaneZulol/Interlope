@@ -9,8 +9,10 @@
 /client/GeneratedFiles
 /client/release/qmake
 /client/client.pro.user
-/build-client-Desktop_Qt_5_12_6_MSVC2017_32bit-Debug
 /client/Makefile.Release
 /client/Makefile.Debug
 /client/Makefile
 /client/.qmake.stash
+/client/release
+/build-client-Desktop_Qt_5_12_6_MSVC2017_32bit-Debug
+/build-client-Desktop_Qt_5_12_6_MSVC2017_32bit-Release

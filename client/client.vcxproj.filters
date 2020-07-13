@@ -52,6 +52,11 @@
     <Filter Include="Resource Files\images">
       <UniqueIdentifier>{84eaa984-4d14-4639-ba75-634c92d28d87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -62,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey_win.cpp">
       <Filter>vendor\qhotkey\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="messenger.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +97,9 @@
     </QtMoc>
     <QtMoc Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey_p.h">
       <Filter>vendor\qhotkey\Header</Filter>
+    </QtMoc>
+    <QtMoc Include="messenger.h">
+      <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>

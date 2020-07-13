@@ -9,9 +9,10 @@ ApplicationWindow {
     id: windowRoot
     visible: false
     title: qsTr("Interlope")
+    
     width: 640
     height: 480
-    color: "silver"
+    color: "#252526"
     onClosing: {
         close.accepted = false
         onTriggered: windowRoot.hide()

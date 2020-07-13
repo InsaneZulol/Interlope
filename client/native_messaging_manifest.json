@@ -1,0 +1,9 @@
+{
+    "name": "io.alan_kaluza.interlope",
+    "description": "Interlope Client",
+    "path": "C:\\local\\Repos\\Interlope\\client\\x64\\Debug\\Interlope.exe",
+    "type": "stdio",
+    "allowed_origins": [
+      "chrome-extension://baokneebhhcljicfnkgbgmaijlkekkmd/"
+    ]
+  }
