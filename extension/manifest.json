@@ -15,6 +15,7 @@
         "contextMenus",
         "tabs",
         "activeTab",
+        "nativeMessaging",
         "https://*/"
       ],
       "icons": {

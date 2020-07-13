@@ -13,3 +13,16 @@ function getPlayingTabs(callback) {
         });
     })
 }
+
+// i think this gets called each time tab_controller is loaded. Test. 
+var port = chrome.runtime.connectNative('io.alan_kaluza.interlope');
+port.onMessage.addListener(function(msg) {
+  console.log("Received" + msg.action);
+  if(msg.action == "toggle_playback") {
+      togglePlayback();
+  }
+});
+port.onDisconnect.addListener(function() {
+  console.log("Disconnected");
+});
+// port.postMessage({ text: "Hello, my_application" });

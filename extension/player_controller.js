@@ -25,9 +25,9 @@ function play(tab) {
 //
 // this query sucks, chrome has delay on audible status.
 // Later on change that to sendMessage to content script and
-// get players state from it's response.
+// get the players state from it's response.
 function getPlaybackState(callback) {
-    chrome.tabs.query({ currentWindow: true, audible: true }, function (qTabs) {
+    chrome.tabs.query({ audible: true }, function (qTabs) {
         if (qTabs.length == 0) {
             playbackState = ENUM_PLAYBACKSTATE_NONE;
             callback(playbackState);
@@ -35,6 +35,17 @@ function getPlaybackState(callback) {
         else {
             playbackState = ENUMLEN_PLAYBACKSTATE_ANY;
             callback(playbackState);
+        }
+    });
+}
+
+function togglePlayback() {
+    getPlaybackState(function (state) {
+        if (state == ENUMLEN_PLAYBACKSTATE_ANY) {
+            getPlayingTabs(pause);
+        }
+        if (state == ENUM_PLAYBACKSTATE_NONE) {
+            getPinnedTab(play);
         }
     });
 }

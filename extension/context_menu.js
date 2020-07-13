@@ -21,14 +21,7 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
 });
 
 function contextClickHandler(info, tab) {
-    getPlaybackState(function (state) {
-        if (state == ENUMLEN_PLAYBACKSTATE_ANY) {
-            getPlayingTabs(pause);
-        }
-        if (state == ENUM_PLAYBACKSTATE_NONE) {
-            getPinnedTab(play);
-        }
-    });
+    togglePlayback();
 }
 
 function onPause() {
