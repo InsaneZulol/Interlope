@@ -57,6 +57,9 @@
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
       <ParseFiles>true</ParseFiles>
     </Filter>
+    <Filter Include="Resource Files\qml_keyboard_layouts">
+      <UniqueIdentifier>{69b8d048-9b1c-43de-9cdf-f1894c5eed6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -89,6 +92,15 @@
     </None>
     <None Include="icon.png">
       <Filter>Resource Files\images</Filter>
+    </None>
+    <None Include="qml_keyboard_layouts\Key.qml">
+      <Filter>Resource Files\qml_keyboard_layouts</Filter>
+    </None>
+    <None Include="qml_keyboard_layouts\KeyboardLayout_EU_QWERTY.qml">
+      <Filter>Resource Files\qml_keyboard_layouts</Filter>
+    </None>
+    <None Include="qml_keyboard_layouts\Spacer.qml">
+      <Filter>Resource Files\qml_keyboard_layouts</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

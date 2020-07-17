@@ -22,5 +22,4 @@ include(vendor/vendor.pri)
 QT += core
 QT += gui
 QT += qml
-QT += qml
 QT += quickcontrols2

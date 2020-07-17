@@ -1,2 +1,2 @@
 # Interlope
-Desktop client and Chromium extension to allow user to control their in-browser media stream globally, without limits for input of choice.
+Desktop client and Chromium extension. Control your in-browser media stream globally with your input of choice.

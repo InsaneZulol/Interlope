@@ -3,5 +3,8 @@
         <file>main.qml</file>
         <file>icon.png</file>
         <file>icon_black.png</file>
+        <file>qml_keyboard_layouts/KeyboardLayout_EU_QWERTY.qml</file>
+        <file>qml_keyboard_layouts/Key.qml</file>
+        <file>qml_keyboard_layouts/Spacer.qml</file>
     </qresource>
 </RCC>

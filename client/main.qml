@@ -1,13 +1,13 @@
-import QtQuick 2.9
+import QtQuick 2.15
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.1
 import Qt.labs.platform 1.1
 import Qt.labs.settings 1.0
-
+import "qml_keyboard_layouts"
 
 ApplicationWindow {
     id: windowRoot
-    visible: false
+    visible: true
     title: qsTr("Interlope")
     
     width: 640
@@ -16,6 +16,11 @@ ApplicationWindow {
     onClosing: {
         close.accepted = false
         onTriggered: windowRoot.hide()
+    }
+
+    KeyboardLayout_EU_QWERTY {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     SystemTrayIcon {
