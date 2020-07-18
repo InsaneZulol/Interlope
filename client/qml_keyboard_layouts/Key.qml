@@ -18,18 +18,18 @@ Rectangle {
             : (windowRoot.width * sizeRatio);
 
     HoverHandler {
-        id: hoverHandler;
         onHoveredChanged: hovered == true
                           ? button.state = "ON"
                           : button.state = "OUT"
     }
 
     TapHandler {
-        id: tapHandler;
-        onTapped: menu.open()
+        onTapped: {
+            menu.open()
+            console.log("assigned action is " + assignedAction)
+        }
         onLongPressed: menu.open()
     }
-
     Text {
         text: caption;
         color: "White";
@@ -45,17 +45,36 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter;
     }
 
+    Text {
+        text: assignedAction;
+        topPadding: parent.height/10
+        anchors.fill: parent;
+        color: "lightgrey";
+        fontSizeMode: Text.Fit;
+        font.pixelSize: isVerticalKey
+                        ? (parent.width/6)
+                        : (parent.height/6);
+
+        font.family: "Consolas";
+        font.italic: true;
+        minimumPixelSize: 4;
+        horizontalAlignment: Text.AlignHCenter;
+        verticalAlignment: Text.AlignTop;
+    }
+
     Menu {
         id: menu
         y: button.height * 0.8
         x: button.width * 0.8
 
         delegate: MenuItem {
+            antialiasing: true
             id: menuItem
-            font.family: "Arial"
-            font.pixelSize: (parent.height/9);
+            font.family: "Segoe UI"
+
+            font.pixelSize: (parent.height/20);
             implicitWidth: 200
-            implicitHeight: 40
+            implicitHeight: 35
             contentItem: Text {
                 leftPadding: menuItem.indicator.width
                 rightPadding: menuItem.arrow.width
@@ -68,27 +87,50 @@ Rectangle {
             }
             background: Rectangle {
                 implicitWidth: 200
-                implicitHeight: 40
+                implicitHeight: 30
                 color: menuItem.highlighted ? "#555B61" : "transparent"
             }
 
         }
 
         Action {
-            text: "New..."
+            text: "Toggle Playback";
+            onTriggered: {
+                keybindSettings.action_toggleKey = button.caption;
+            }
         }
         Action {
-            text: "Open..."
+            text: "Fast Forward 15sec."
+        }
+        Action {
+            text: "Reverse 15sec."
+        }
+        Action {
+            text: "Next"
+        }
+        Action {
+            text: "Previous"
+        }
+        Action {
+            text: "Increase volume"
+        }
+        Action {
+            text: "Decrease volume"
         }
         MenuSeparator {
             contentItem: Rectangle {
                 implicitHeight: 1
                 color: "white"
-            }}
+            }
+        }
         Action {
             text: "Clear"
+            onTriggered: {
+                // remvoe just that one key, not empty whole!
+                keybindSettings.action_toggleKeys = [];
+                keybindSettings.action_nextKeys = [];
+            }
         }
-
 
         background: Rectangle {
             implicitWidth: 200
@@ -125,12 +167,34 @@ Rectangle {
         }
     ]
 
-    signal keyClicked();
+    Connections{
+        target: keybindSettings
 
-    property string caption: "...";
+        function onAction_toggleKeyChanged() {
+            console.log("onAction_toggleKeyChanged")
+            if(keybindSettings.action_toggleKey == button.caption) {
+                button.assignedAction = qsTr("Toggle Playback");
+            } else assignedAction = qsTr("");
+        }
+    }
+    // we lookup settings to check if there is action bound to this key
+    Component.onCompleted: {
+        if(keybindSettings.action_toggleKey == button.caption)
+            button.assignedAction = qsTr("Toggle Playback");
+    }
+
+
+    signal newToggleBinding(string key);
+    signal clearBinding(string keyName);
+
+
     property real aspectRatio: 1;
     property real sizeRatio: 0.04;
     property bool isVerticalKey: false;
     property color hoverColor: "#000000"
+    property string assignedAction: qsTr("");
+    property string caption: qsTr("...");
+    // Checks settings for key name/caption.
+    // Returns action bound to that name.
 }
 

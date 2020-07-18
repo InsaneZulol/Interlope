@@ -12,17 +12,17 @@ int main(int argc, char *argv[])
 
 #if defined(Q_OS_WIN)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    // Just for debug...
-    AllocConsole();
-    FILE* nerr = nullptr;
-    freopen_s(&nerr, "CONOUT$", "w", stderr);
-	//
+////     Just for debug...
+//    AllocConsole();
+//    FILE* nerr = nullptr;
+//    freopen_s(&nerr, "CONOUT$", "w", stderr);
+
 #endif
 	
     QGuiApplication app(argc, argv);
 
     Messenger messenger;
-	//todo organize binds
+    // todo organize binds
     QHotkey toggle_playback_action(QKeySequence(Qt::Key_Clear), true, &app);
     qDebug() << "Is Registered: " << toggle_playback_action.isRegistered();
     QObject::connect(&toggle_playback_action, &QHotkey::activated, qApp, [&](){

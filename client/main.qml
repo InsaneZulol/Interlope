@@ -26,7 +26,6 @@ ApplicationWindow {
     SystemTrayIcon {
         visible: true
         iconSource: "qrc:/icon.png"
-        // toggle show/hide main window
         onActivated: {
             if(reason === SystemTrayIcon.Trigger) {
                 if(windowRoot.visible === true) {
@@ -48,7 +47,6 @@ ApplicationWindow {
                 onTriggered: {
                     windowRoot.show()
                     windowRoot.raise()
-                    // todo: goto settings tab
                 }
             }
             MenuItem {
@@ -65,8 +63,11 @@ ApplicationWindow {
         property alias width: windowRoot.width
         property alias height: windowRoot.height
     }
-
     Settings {
+        id: keybindSettings
         category: "Keybinds"
+        property string action_toggleKey
+        property var action_nextKeys: [];
+
     }
 }
