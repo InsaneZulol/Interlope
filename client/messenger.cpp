@@ -4,6 +4,8 @@
 #include <QCoreApplication>
 #include <Windows.h>
 #include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 Messenger::Messenger(QObject *parent)
 	: QObject(parent) {
@@ -13,6 +15,18 @@ Messenger::Messenger(QObject *parent)
 	out_.open(stdout, QIODevice::WriteOnly);
 }
 
+void Messenger::prepareMessage(const QString& message) {
+    qDebug() << "preparing msg: " << message;
+
+    const QJsonObject object
+    {
+        {"action", message}
+    };
+    const auto msg = QJsonDocument(object).toJson(QJsonDocument::Compact);
+    sendMessage(msg);
+}
+
+
 void Messenger::sendMessage(const QByteArray& message) {
 	quint32 len = message.length();
 	out_.write(reinterpret_cast<char*>(&len), sizeof(len));
@@ -20,7 +34,7 @@ void Messenger::sendMessage(const QByteArray& message) {
 	out_.flush();
 }
 
-// todo: finish reading from stdin later... either starting new a new thread with cin might be necessary
+// todo: finish reading from stdin later. either starting new a new thread with cin might be necessary
 // or async notifications through QWinSocketNotifier/tcpnotifier(?)
 void Messenger::readyRead() {
     in_.startTransaction();

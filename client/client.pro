@@ -23,3 +23,4 @@ QT += core
 QT += gui
 QT += qml
 QT += quickcontrols2
+QML_IMPORT_PATH += $$PWD

@@ -327,7 +327,26 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="hotkeymanager.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </ClCompile>
     <ClCompile Include="messenger.cpp" />
     <ClCompile Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey.cpp" />
     <ClCompile Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey_win.cpp" />
@@ -354,11 +373,15 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="icon.png" />
-    <None Include="main.qml" />
-    <None Include="qml_keyboard_layouts\Key.qml" />
-    <None Include="qml_keyboard_layouts\KeyboardLayout_EU_QWERTY.qml" />
-    <None Include="qml_keyboard_layouts\Spacer.qml" />
+    <None Include="QML\ActionMenu.qml" />
+    <None Include="QML\Hotkeys.js" />
+    <None Include="QML\Hotkeys.qml" />
+    <None Include="QML\Key.js" />
+    <None Include="QML\Key.qml" />
+    <None Include="QML\KeyboardLayout_EU_QWERTY.qml" />
+    <None Include="QML\main.qml" />
+    <None Include="QML\Spacer.qml" />
+    <None Include="QML\TextConstants.qml" />
     <None Include="vendor\de\skycoder42\qhotkey\QHotkey\QHotkey" />
     <QtRcc Include="qml.qrc">
     </QtRcc>
@@ -371,6 +394,13 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="messenger.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="hotkeymanager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\icon.png" />
+    <Image Include="assets\icon_black.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

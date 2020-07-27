@@ -49,22 +49,19 @@
     <Filter Include="vendor\qhotkey\Header">
       <UniqueIdentifier>{3e9aba06-62f6-4ba9-aaf6-c57212c9412c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\images">
-      <UniqueIdentifier>{84eaa984-4d14-4639-ba75-634c92d28d87}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
       <ParseFiles>true</ParseFiles>
     </Filter>
-    <Filter Include="Resource Files\qml_keyboard_layouts">
-      <UniqueIdentifier>{69b8d048-9b1c-43de-9cdf-f1894c5eed6d}</UniqueIdentifier>
+    <Filter Include="QML">
+      <UniqueIdentifier>{cccccda3-0ee9-4e55-87a4-4e9ea60787bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\assets">
+      <UniqueIdentifier>{64548f7d-6ec6-4964-b987-5d4c3a2b8b40}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey.cpp">
       <Filter>vendor\qhotkey\Sources</Filter>
     </ClCompile>
@@ -74,6 +71,12 @@
     <ClCompile Include="messenger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="hotkeymanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="GeneratedFiles\moc_predefs.h.cbt">
@@ -81,26 +84,11 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="main.qml">
-      <Filter>Resource Files</Filter>
-    </None>
     <QtRcc Include="qml.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
     <None Include="vendor\de\skycoder42\qhotkey\QHotkey\QHotkey">
       <Filter>vendor\qhotkey\Header</Filter>
-    </None>
-    <None Include="icon.png">
-      <Filter>Resource Files\images</Filter>
-    </None>
-    <None Include="qml_keyboard_layouts\Key.qml">
-      <Filter>Resource Files\qml_keyboard_layouts</Filter>
-    </None>
-    <None Include="qml_keyboard_layouts\KeyboardLayout_EU_QWERTY.qml">
-      <Filter>Resource Files\qml_keyboard_layouts</Filter>
-    </None>
-    <None Include="qml_keyboard_layouts\Spacer.qml">
-      <Filter>Resource Files\qml_keyboard_layouts</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -113,5 +101,45 @@
     <QtMoc Include="messenger.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="hotkeymanager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QML\ActionMenu.qml">
+      <Filter>QML</Filter>
+    </None>
+    <None Include="QML\Hotkeys.js">
+      <Filter>QML</Filter>
+    </None>
+    <None Include="QML\Hotkeys.qml">
+      <Filter>QML</Filter>
+    </None>
+    <None Include="QML\Key.js">
+      <Filter>QML</Filter>
+    </None>
+    <None Include="QML\Key.qml">
+      <Filter>QML</Filter>
+    </None>
+    <None Include="QML\KeyboardLayout_EU_QWERTY.qml">
+      <Filter>QML</Filter>
+    </None>
+    <None Include="QML\main.qml">
+      <Filter>QML</Filter>
+    </None>
+    <None Include="QML\Spacer.qml">
+      <Filter>QML</Filter>
+    </None>
+    <None Include="QML\TextConstants.qml">
+      <Filter>QML</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\icon.png">
+      <Filter>Resource Files\assets</Filter>
+    </Image>
+    <Image Include="assets\icon_black.png">
+      <Filter>Resource Files\assets</Filter>
+    </Image>
   </ItemGroup>
 </Project>
