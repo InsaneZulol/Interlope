@@ -1,15 +1,14 @@
 import QtQuick 2.0
 import de.skycoder42.QHotkey 1.0
-import QtTest 1.2
 import "Hotkeys.js" as Hotkey
 Item {
-
+    signal message(msg: string);
     QHotkey {
         objectName: "toggleHotkey";
         id: toggleHotkey;
         shortcut: Qt.Key_unknown;
         registered: false;
-        onActivated: console.log("pressed toggle xd");
+        onActivated: message("toggle_playback");
         Component.onCompleted: {
             Hotkey.register(this, keybindSettings.toggle);
         }
@@ -20,7 +19,7 @@ Item {
         id: fastFwdHotkey;
         shortcut: Qt.Key_unknown;
         registered: false;
-        onActivated: console.log("CLUCK");
+        onActivated: message("fast_forward");
         Component.onCompleted: {
             Hotkey.register(this, keybindSettings.fastFwd);
         }
@@ -31,7 +30,7 @@ Item {
         id: reverseHotkey;
         shortcut: Qt.Key_unknown;
         registered: false;
-        onActivated: console.log("pressed reverse xd");
+        onActivated: message("reverse_playback");
         Component.onCompleted: {
             Hotkey.register(this, keybindSettings.reverse);
         }
@@ -42,7 +41,7 @@ Item {
         id: nextHotkey;
         shortcut: Qt.Key_unknown;
         registered: false;
-        onActivated: console.log("pressed next xd");
+        onActivated: message("next_media");
         Component.onCompleted: {
             Hotkey.register(this, keybindSettings.next);
         }
@@ -53,7 +52,7 @@ Item {
         id: prevHotkey;
         shortcut: Qt.Key_unknown;
         registered: false;
-        onActivated: console.log("pressed prev xd");
+        onActivated: message("previous_media");
         Component.onCompleted: {
             Hotkey.register(this, keybindSettings.prev);
         }
@@ -64,7 +63,7 @@ Item {
         id: volUpHotkey;
         shortcut: Qt.Key_unknown;
         registered: false;
-        onActivated: console.log("pressed volUpHotkey xd");
+        onActivated: message("volume_up");
         Component.onCompleted: {
             Hotkey.register(this, keybindSettings.volUp);
         }
@@ -75,7 +74,7 @@ Item {
         id: volDnHotkey;
         shortcut: Qt.Key_unknown;
         registered: false;
-        onActivated: console.log("pressed volDnHotkey xd");
+        onActivated: message("toggle_playback");
         Component.onCompleted: {
             Hotkey.register(this, keybindSettings.volDn);
         }

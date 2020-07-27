@@ -24,8 +24,11 @@ ApplicationWindow {
     }
 
     SystemTrayIcon {
+        objectName: "trayIcon";
+        id: trayIcon;
         visible: true
-        iconSource: "qrc:/assets/icon.png"
+        icon.source: "qrc:/assets/icon.png"
+        signal message(msg: string);
         onActivated: {
             if(reason === SystemTrayIcon.Trigger) {
                 if(windowRoot.visible === true) {
@@ -41,6 +44,7 @@ ApplicationWindow {
         menu: Menu {
             MenuItem {
                 text: textConstants.toggle_playback;
+                onTriggered: trayIcon.message("toggle_playback");
             }
             MenuItem {
                 text: textConstants.settings;
@@ -121,6 +125,7 @@ ApplicationWindow {
 
     Hotkeys {
         id: hotkeys
+        objectName: "hotkeys";
     }
 
 

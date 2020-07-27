@@ -54,11 +54,11 @@
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
       <ParseFiles>true</ParseFiles>
     </Filter>
-    <Filter Include="QML">
-      <UniqueIdentifier>{cccccda3-0ee9-4e55-87a4-4e9ea60787bb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\assets">
       <UniqueIdentifier>{64548f7d-6ec6-4964-b987-5d4c3a2b8b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qml">
+      <UniqueIdentifier>{cccccda3-0ee9-4e55-87a4-4e9ea60787bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -107,31 +107,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="QML\ActionMenu.qml">
-      <Filter>QML</Filter>
+      <Filter>qml</Filter>
     </None>
     <None Include="QML\Hotkeys.js">
-      <Filter>QML</Filter>
+      <Filter>qml</Filter>
     </None>
     <None Include="QML\Hotkeys.qml">
-      <Filter>QML</Filter>
+      <Filter>qml</Filter>
     </None>
     <None Include="QML\Key.js">
-      <Filter>QML</Filter>
+      <Filter>qml</Filter>
     </None>
     <None Include="QML\Key.qml">
-      <Filter>QML</Filter>
+      <Filter>qml</Filter>
     </None>
     <None Include="QML\KeyboardLayout_EU_QWERTY.qml">
-      <Filter>QML</Filter>
+      <Filter>qml</Filter>
     </None>
     <None Include="QML\main.qml">
-      <Filter>QML</Filter>
+      <Filter>qml</Filter>
     </None>
     <None Include="QML\Spacer.qml">
-      <Filter>QML</Filter>
+      <Filter>qml</Filter>
     </None>
     <None Include="QML\TextConstants.qml">
-      <Filter>QML</Filter>
+      <Filter>qml</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

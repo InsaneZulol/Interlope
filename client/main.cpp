@@ -11,20 +11,22 @@
 
 int main(int argc, char *argv[])
 {
+
 #if defined(Q_OS_WIN)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-////     Just for debug...
-    AllocConsole();
-    FILE* nerr = nullptr;
-    freopen_s(&nerr, "CONOUT$", "w", stderr);
+//  Just for debug
+    if (argc > 1) {
+        std::string arg = argv[1];
+        if (arg == "--debug") {
+            AllocConsole();
+            FILE* nerr = nullptr;
+            freopen_s(&nerr, "CONOUT$", "w", stderr);
+        }
+    }
 
 #endif
     
-
     QGuiApplication app(argc, argv);
-
-    // todo organize binds
-	
     app.setWindowIcon(QIcon(":/assets/icon_black.png"));
     app.setOrganizationName("Alan Kaluza");
     app.setOrganizationDomain("insanezulol.github.io");
@@ -33,23 +35,23 @@ int main(int argc, char *argv[])
     qmlRegisterType<QHotkey>("de.skycoder42.QHotkey", 1, 0, "QHotkey");
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
     
     QObject* rootObject = engine.rootObjects().first();
-    QObject* QMLSettings_obj = rootObject->findChild<QObject*>("keybindSettings");
-    if (QMLSettings_obj) qDebug() << "found";
+    QObject* QMLHotkeys = rootObject->findChild<QObject*>("hotkeys");
+    QObject* QMLTrayIcon = rootObject->findChild<QObject*>("trayIcon");
+
     Messenger messenger;
 
-    //HotkeyManager man(&app, &messenger, QMLSettings_obj);
-    // connect to all key button items. Move this to hotkeyManager. 
-    /*QList<QObject*> keyObj = rootObject->findChildren<QObject*>("kbutton");
-    for (auto i = 0; i < keyObj.length(); i++) {
-        bool connected = QObject::connect(keyObj[i], SIGNAL(clearBinding(qint32)),
-            &man, SLOT(onClearBinding(qint32)), Qt::DirectConnection);
-        qDebug() << "Connection established?" << connected;
-    }*/
+    bool connected = QObject::connect(QMLHotkeys, SIGNAL(message(QString)),
+        &messenger, SLOT(prepareMessage(QString)), Qt::DirectConnection);
+    qDebug() << "Connection established?" << connected;
+
+    bool xconnected = QObject::connect(QMLTrayIcon, SIGNAL(message(QString)),
+        &messenger, SLOT(prepareMessage(QString)), Qt::DirectConnection);
+    qDebug() << "Connection established?" << xconnected;
     
 
 

@@ -1,14 +1,14 @@
 <RCC>
     <qresource prefix="/">
-        <file>QML/Key.js</file>
-        <file>QML/Key.qml</file>
-        <file>QML/main.qml</file>
-        <file>QML/Spacer.qml</file>
-        <file>QML/Hotkeys.qml</file>
-        <file>QML/TextConstants.qml</file>
-        <file>QML/KeyboardLayout_EU_QWERTY.qml</file>
-        <file>QML/Hotkeys.js</file>
-        <file>QML/ActionMenu.qml</file>
+        <file>qml/Key.js</file>
+        <file>qml/Key.qml</file>
+        <file>qml/main.qml</file>
+        <file>qml/Spacer.qml</file>
+        <file>qml/Hotkeys.qml</file>
+        <file>qml/TextConstants.qml</file>
+        <file>qml/KeyboardLayout_EU_QWERTY.qml</file>
+        <file>qml/Hotkeys.js</file>
+        <file>qml/ActionMenu.qml</file>
         <file>assets/icon.png</file>
         <file>assets/icon_black.png</file>
     </qresource>
