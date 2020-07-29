@@ -5,6 +5,12 @@ Desktop client and Chromium extension. Control your in-browser media stream glob
   <img width="200" height="200" src="https://i.imgur.com/1erEAMS.png">
 </p>
 
+<p align="center">
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/InsaneZulol/Interlope/graphs/commit-activity)
+[![GitHub release](https://img.shields.io/github/release/InsaneZulol/Chad.svg)](https://GitHub.com/InsaneZulol/Interlope/releases/)
+
+</p>
 
 ## How to install
 click install
