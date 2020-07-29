@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Client</DisplayName>
+    <Description>pls install.</Description>
+    <Version>0.1.0-1</Version>
+    <ReleaseDate>2020-07-28</ReleaseDate>
+    <Licenses>
+        <License name="Beer Public License Agreement" file="license.txt" />
+    </Licenses>
+    <Default>true</Default>
+    <ForcedInstallation>true</ForcedInstallation>
+    <!-- <RequiresAdminRights>true</RequiresAdminRights> -->
+    <Script>installscript.qs</Script>
+</Package>

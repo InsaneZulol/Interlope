@@ -1,12 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QIcon>
-
 #include <Windows.h>
 #include "messenger.h"
 #include "hotkeymanager.h"
-
-
 
 
 int main(int argc, char *argv[])
@@ -45,15 +42,12 @@ int main(int argc, char *argv[])
 
     Messenger messenger;
 
-    bool connected = QObject::connect(QMLHotkeys, SIGNAL(message(QString)),
+    QObject::connect(QMLHotkeys, SIGNAL(message(QString)),
         &messenger, SLOT(prepareMessage(QString)), Qt::DirectConnection);
-    qDebug() << "Connection established?" << connected;
 
-    bool xconnected = QObject::connect(QMLTrayIcon, SIGNAL(message(QString)),
+    QObject::connect(QMLTrayIcon, SIGNAL(message(QString)),
         &messenger, SLOT(prepareMessage(QString)), Qt::DirectConnection);
-    qDebug() << "Connection established?" << xconnected;
     
-
 
     return app.exec();
 }

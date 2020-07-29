@@ -7,7 +7,8 @@
         "scripts": [
           "context_menu.js",
           "player_controller.js",
-          "tab_controller.js"
+          "tab_controller.js",
+          "native_port.js"
         ],
         "persistent": false
       },

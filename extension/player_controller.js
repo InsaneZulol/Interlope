@@ -7,17 +7,26 @@ function pause(tab) {
     chrome.tabs.executeScript(
         tab.id,
         { code: "document.querySelector('video').pause();" },
-        onPause
-    );
+        () => {
+            if (chrome.runtime.lastError) {
+                console.error('tab: ' + tab.id + ' lastError: ' + JSON.stringify(chrome.runtime.lastError));
+            } else {
+                onPause(); // this just updates context menu for now
+            }
+        });
 }
 
 function play(tab) {
     chrome.tabs.executeScript(
         tab.id,
         { code: "document.querySelector('video').play();" },
-        onPlay
-    );
-
+        () => {
+            if (chrome.runtime.lastError) {
+                console.error('tab: ' + tab.id + ' lastError: ' + JSON.stringify(chrome.runtime.lastError));
+            } else {
+                onPlay(); // this just updates context menu for now
+            }
+        });
 }
 
 // returns enum value ENUM_PLAYBACKSTATE_NONE / ENUMLEN_PLAYBACKSTATE_ANY
@@ -40,6 +49,7 @@ function getPlaybackState(callback) {
 }
 
 function togglePlayback() {
+    connectToNativeClient(); // retry to startup host app. TODO: Move it out of here.
     getPlaybackState(function (state) {
         if (state == ENUMLEN_PLAYBACKSTATE_ANY) {
             getPlayingTabs(pause);
