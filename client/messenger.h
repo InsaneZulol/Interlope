@@ -11,7 +11,7 @@ namespace Message {
 	const QString NEXT = "next_media";
 	const QString PREVIOUS = "previous_media";
 	const QString VOL_UP = "volume_up";
-	const QString VOL_DN = "toggle_playback";
+	const QString VOL_DN = "volume_dn";
 }
 
 class Messenger : public QObject

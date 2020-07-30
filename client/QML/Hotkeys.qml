@@ -74,7 +74,7 @@ Item {
         id: volDnHotkey;
         shortcut: Qt.Key_unknown;
         registered: false;
-        onActivated: message("toggle_playback");
+        onActivated: message("volume_dn");
         Component.onCompleted: {
             Hotkey.register(this, keybindSettings.volDn);
         }

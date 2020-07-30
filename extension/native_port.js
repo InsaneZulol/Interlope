@@ -1,24 +1,33 @@
 var native_connection_status = false;
 
-chrome.runtime.onInstalled.addListener(function () {
+chrome.runtime.onInstalled.addListener(function (res) {
     connectToNativeClient();
 });
 
+// Handle messages from yt_content_script
+chrome.runtime.onMessage.addListener((msg) => {
+    if (msg == "content_script_load") {
+        connectToNativeClient();
+    }
+    return true;
+});
+
+
+
 function connectToNativeClient() {
-    if (!native_connection_status) {        
+    if (!native_connection_status) {
         var port = chrome.runtime.connectNative('io.alan_kaluza.interlope');
         native_connection_status = true;
 
         port.onMessage.addListener(function (msg) {
             console.log("Received " + msg.action);
-            if (msg.action == "toggle_playback") {
-                togglePlayback();
-            }
+            // relay the message to content script
+            requestAction(msg.action);
         });
 
         port.onDisconnect.addListener((p) => {
             native_connection_status = false;
-            console.log("Disconnected");
+            console.log("Native client disconnected");
             if (p.error) {
                 console.log(`due to an error: ${p.error.message}`);
             }

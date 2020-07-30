@@ -1,4 +1,3 @@
-// todo: show context menu only when there is yt in bg
 chrome.contextMenus.onClicked.addListener(contextClickHandler);
 
 chrome.runtime.onInstalled.addListener(function () {
@@ -10,28 +9,20 @@ chrome.runtime.onInstalled.addListener(function () {
 });
 
 // Handle messages from yt_content_script
-chrome.runtime.onMessage.addListener((msg, sender, response) => {
-    console.log("message arrived!: " + msg);
-    if (msg == "play") {
-        onPlay();
+chrome.runtime.onMessage.addListener((msg) => {
+    if (msg == "player_resumed") {
+        chrome.contextMenus.update("contextMenu", {
+            title:  "\u2759\u2759 Pause",
+        });
     }
-    if (msg == "pause") {
-        onPause();
+    if (msg == "player_paused") {
+        chrome.contextMenus.update("contextMenu", {
+            title: "\u25B6 Resume",
+        });
     }
+    return true;
 });
 
 function contextClickHandler(info, tab) {
-    togglePlayback();
-}
-
-function onPause() {
-    chrome.contextMenus.update("contextMenu", {
-        title: "\u25B6 Resume in pinned tab",
-    });
-}
-
-function onPlay() {
-    chrome.contextMenus.update("contextMenu", {
-        title: "\u2759\u2759 Pause all",
-    });
+    requestAction("toggle_playback");
 }

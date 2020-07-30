@@ -20,3 +20,5 @@
 /Deploy
 /Installer/packages/io.alan_kaluza.interlope/data
 /Installer/InterlopeInstall.exe
+extension.pem
+Interlope.crx
