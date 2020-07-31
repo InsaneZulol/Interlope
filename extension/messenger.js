@@ -5,7 +5,7 @@ var MESSENGER = (function () {
             if (tabs.length != 0) {
                 chrome.tabs.sendMessage(tabs[0].id, { action: req_action }, function (response) {
                     if (chrome.runtime.lastError) {
-                        console.warn("Whoops.. error sending message to content script"
+                        console.warn("Whoops.. error sending message to content script "
                             + chrome.runtime.lastError.message);
                         if (chrome.runtime.lastError.message ==
                             "Could not establish connection. Receiving end does not exist.")
