@@ -6,8 +6,7 @@
     "background": {
         "scripts": [
           "context_menu.js",
-          "player_controller.js",
-          "tab_controller.js",
+          "messenger.js",
           "native_port.js"
         ],
         "persistent": false
@@ -17,7 +16,7 @@
         "tabs",
         "activeTab",
         "nativeMessaging",
-        "https://*/"
+        "https://*.youtube.com/watch?v=*"
       ],
       "icons": {
         "16": "icons/16_play.png",
