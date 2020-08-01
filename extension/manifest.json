@@ -5,7 +5,7 @@
     "manifest_version": 2,
     "background": {
         "scripts": [
-          "context_menu.js",
+          "ui_controller.js",
           "messenger.js",
           "native_port.js"
         ],
