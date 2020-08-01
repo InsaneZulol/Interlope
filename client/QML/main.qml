@@ -8,7 +8,7 @@ import "Key.js" as Logic
 
 ApplicationWindow {
     id: windowRoot
-    visible: true
+    visible: false
     title: qsTr("Interlope")
     
     width: 640

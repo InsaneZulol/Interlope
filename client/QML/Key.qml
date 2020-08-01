@@ -61,7 +61,7 @@ Rectangle {
         text: actionLabel;
         topPadding: parent.height/10
         anchors.fill: parent;
-        color: "lightgrey";
+        color: "lightblue";
         fontSizeMode: Text.Fit;
         font.pixelSize: isVerticalKey
                         ? (parent.width/6)
