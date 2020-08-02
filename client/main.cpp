@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include "messenger.h"
 #include "hotkeymanager.h"
-
+#include <io.h>
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +20,11 @@ int main(int argc, char *argv[])
             freopen_s(&nerr, "CONOUT$", "w", stderr);
         }
     }
+
+    /// delet
+    AllocConsole();
+    FILE* nerr = nullptr;
+    freopen_s(&nerr, "CONOUT$", "w", stderr);
 
 #endif
     

@@ -27,6 +27,7 @@ var UICONTROLLER = (function () {
 
     function _contextClickHandler(info, tab) {
         MESSENGER.requestAction("toggle_playback");
+        NATIVEPORT.sendMessageToClient("Hello, client");
     }
     //
     // EOF Context menu

@@ -2,7 +2,7 @@
 
 #include <QObject>
 #include <QFile>
-
+#include <QThread>
 
 namespace Message {
 	const QString TOGGLE = "toggle_playback";
@@ -14,21 +14,22 @@ namespace Message {
 	const QString VOL_DN = "volume_dn";
 }
 
+
 class Messenger : public QObject
 {
 	Q_OBJECT
 public:
 	explicit Messenger(QObject* parent = nullptr);
-	
+	~Messenger();
 	void sendMessage(const QByteArray& message);
 Q_SIGNALS:
-	void newMessage(const QString& message);
+
 public Q_SLOTS:
 	void prepareMessage(const QString& message);
-private Q_SLOTS:
-	void readyRead();
-private:
-	QFile in_;
-	QFile out_;
 
+private:
+
+	QFile out_;
+	
+	QThread recv_thread_;
 };

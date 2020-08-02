@@ -1,27 +1,30 @@
 var NATIVEPORT = (function () {
-    var native_connection_status = false;
+    var _native_connection_status = false;
+    var _port;
 
     function _connectToNativeClient() {
-        if (!native_connection_status) {
-            var port = chrome.runtime.connectNative('io.alan_kaluza.interlope');
-            native_connection_status = true;
+        if (!_native_connection_status) {
+            _port = chrome.runtime.connectNative('io.alan_kaluza.interlope');
+            _native_connection_status = true;
 
-            port.onMessage.addListener(function (msg) {
+            _port.onMessage.addListener(function (msg) {
                 console.log("Received " + msg.action);
                 // relay the message to content script
                 MESSENGER.requestAction(msg.action);
             });
 
-            port.onDisconnect.addListener((p) => {
-                native_connection_status = false;
+            _port.onDisconnect.addListener((p) => {
+                _native_connection_status = false;
                 console.log("Native client disconnected");
                 if (p.error) {
                     console.log(`due to an error: ${p.error.message}`);
                 }
             });
         }
-        // port.postMessage({ text: "Hello, my_application" });
+    }
 
+    function _sendMessageToClient(msg) {
+        _port.postMessage({ text: msg });
     }
     
     chrome.runtime.onInstalled.addListener(function (res) {
@@ -35,4 +38,7 @@ var NATIVEPORT = (function () {
         }
         return true;
     });
+    return {
+        sendMessageToClient : _sendMessageToClient,
+    }
 })();

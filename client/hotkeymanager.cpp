@@ -29,16 +29,6 @@ HotkeyManager::HotkeyManager(QObject* parent, Messenger* messenger, QObject* qml
     if (voldn != NULL)
         connectAction(registerHotkey(QKeySequence(voldn), &voldnHotkey_), Message::VOL_DN);
 
-    //fastFwdHotkey_->setShortcut(Qt::Key_M, true);
-
-    QObject::connect(qml_comms, SIGNAL(toggleKeyChanged()),
-        this, SIGNAL(ctoggleKeyChanged()));
-
-    //QObject::connect(this, &HotkeyManager::ctoggleKeyChanged,
-    //    this, [&]() {
-    //        updateHotkey(toggleHotkey_);
-    //    });
-
 
 }
 

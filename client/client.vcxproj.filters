@@ -68,13 +68,16 @@
     <ClCompile Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey_win.cpp">
       <Filter>vendor\qhotkey\Sources</Filter>
     </ClCompile>
-    <ClCompile Include="messenger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="hotkeymanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="messenger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="receiverworker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="hotkeymanager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="receiverworker.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

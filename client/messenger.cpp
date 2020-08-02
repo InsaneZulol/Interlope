@@ -1,19 +1,48 @@
 #include "messenger.h"
-#include <io.h>
-#include <fcntl.h>
+#include <receiverworker.h>
 #include <QCoreApplication>
-#include <Windows.h>
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QThread>
+
+#ifdef Q_OS_WIN
+#include <Windows.h>
+#include <io.h>
+#include <fcntl.h>
+#endif
+
 
 Messenger::Messenger(QObject *parent)
 	: QObject(parent) {
 #ifdef Q_OS_WIN
     _setmode(_fileno(stdout), _O_BINARY);
+    _setmode(_fileno(stdin), _O_BINARY);
+
 #endif
+    // stdout can stay on same thread, as we know when we send the messages.
+    // stdin, since we don't know when the new message arrives,
+    // we will use a blocking loop in it's own thread.
 	out_.open(stdout, QIODevice::WriteOnly);
+    
+    ReceiverWorker* worker = new ReceiverWorker();
+    worker->moveToThread(&recv_thread_);
+    connect(worker, &ReceiverWorker::receivedMessage, this, [this](const QString& message) {
+        qDebug() << "new message arrived in c++!: " << message;
+        });
+    connect(&recv_thread_, &QThread::started, worker, &ReceiverWorker::run);
+
+    connect(worker, &QThread::finished, worker, &QObject::deleteLater);
+    connect(&recv_thread_, &QThread::finished, worker, &QObject::deleteLater);
+
+    recv_thread_.start();
 }
+
+Messenger::~Messenger() {
+    recv_thread_.quit();
+    recv_thread_.wait();
+}
+
 
 void Messenger::prepareMessage(const QString& message) {
     qDebug() << "preparing msg: " << message;
@@ -32,28 +61,4 @@ void Messenger::sendMessage(const QByteArray& message) {
 	out_.write(reinterpret_cast<char*>(&len), sizeof(len));
 	out_.write(message);
 	out_.flush();
-}
-
-// todo: finish reading from stdin later. either starting new a new thread with cin might be necessary
-// or async notifications through QWinSocketNotifier/tcpnotifier(?)
-void Messenger::readyRead() {
-    in_.startTransaction();
-    quint32 len = 0;
-    const auto res = in_.read(reinterpret_cast<char*>(&len), sizeof(quint32));
-    if (res == -1) {
-        in_.rollbackTransaction();
-        return;
-    }
-    const auto message = in_.read(len);
-    qDebug() << "in readyRead, message: " << message;
-    if (message.length() != int(len)) {
-        in_.rollbackTransaction();
-        return;
-    }
-    if (message.isEmpty()) {
-        in_.rollbackTransaction();
-        return;
-    }
-    in_.commitTransaction();
-    Q_EMIT newMessage(message);
 }
