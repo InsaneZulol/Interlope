@@ -3,7 +3,8 @@
 #include <QFile>
 #include <QDebug>
 
-void ReceiverWorker::run() {
+
+void ReceiverWorker::process() {
     QFile in;
     in.open(stdin, QIODevice::ReadOnly | QIODevice::Unbuffered);
     while (true) {
@@ -27,4 +28,12 @@ void ReceiverWorker::run() {
         in.commitTransaction();
         emit receivedMessage(message);
     }
+    qDebug() << "done";
+}
+
+ReceiverWorker::~ReceiverWorker() {
+
+}
+ReceiverWorker::ReceiverWorker() {
+    // you could copy data from constructor arguments to internal variables here.
 }

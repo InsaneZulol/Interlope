@@ -5,6 +5,7 @@
 #include "messenger.h"
 #include "hotkeymanager.h"
 #include <io.h>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
@@ -25,7 +26,6 @@ int main(int argc, char *argv[])
     AllocConsole();
     FILE* nerr = nullptr;
     freopen_s(&nerr, "CONOUT$", "w", stderr);
-
 #endif
     
     QGuiApplication app(argc, argv);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
-    
+
     QObject* rootObject = engine.rootObjects().first();
     QObject* QMLHotkeys = rootObject->findChild<QObject*>("hotkeys");
     QObject* QMLTrayIcon = rootObject->findChild<QObject*>("trayIcon");

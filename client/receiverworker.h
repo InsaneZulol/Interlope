@@ -2,13 +2,15 @@
 
 #include <QThread>
 
-class ReceiverWorker : public QThread
+class ReceiverWorker : public QObject
 {
 	Q_OBJECT
-
 public:
-	void run() override;
+	ReceiverWorker();
+	~ReceiverWorker();
+public slots:
+	void process();
 
-	Q_SIGNAL
+signals:
 	void receivedMessage(const QString& message);
 };

@@ -30,6 +30,5 @@ public Q_SLOTS:
 private:
 
 	QFile out_;
-	
-	QThread recv_thread_;
+	QThread* recv_thread_ = nullptr;
 };

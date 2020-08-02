@@ -20,27 +20,27 @@ Messenger::Messenger(QObject *parent)
     _setmode(_fileno(stdin), _O_BINARY);
 
 #endif
-    // stdout can stay on same thread, as we know when we send the messages.
+    // stdout can stay on the same thread, as we know when we send messages.
     // stdin, since we don't know when the new message arrives,
     // we will use a blocking loop in it's own thread.
 	out_.open(stdout, QIODevice::WriteOnly);
     
+    recv_thread_ = new QThread;
     ReceiverWorker* worker = new ReceiverWorker();
-    worker->moveToThread(&recv_thread_);
+    worker->moveToThread(recv_thread_);
     connect(worker, &ReceiverWorker::receivedMessage, this, [this](const QString& message) {
         qDebug() << "new message arrived in c++!: " << message;
         });
-    connect(&recv_thread_, &QThread::started, worker, &ReceiverWorker::run);
+    connect(recv_thread_, &QThread::started, worker, &ReceiverWorker::process);
+    connect(worker, &ReceiverWorker::receivedMessage, recv_thread_, &QThread::quit);
+    connect(worker, &ReceiverWorker::receivedMessage, worker, &QObject::deleteLater);
+    connect(recv_thread_, &QThread::finished, recv_thread_, &QObject::deleteLater);
 
-    connect(worker, &QThread::finished, worker, &QObject::deleteLater);
-    connect(&recv_thread_, &QThread::finished, worker, &QObject::deleteLater);
-
-    recv_thread_.start();
+    recv_thread_->start();
 }
 
 Messenger::~Messenger() {
-    recv_thread_.quit();
-    recv_thread_.wait();
+
 }
 
 

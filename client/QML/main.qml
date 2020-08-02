@@ -25,6 +25,7 @@ ApplicationWindow {
 
     SystemTrayIcon {
         objectName: "trayIcon";
+        tooltip: "Interlope"
         id: trayIcon;
         visible: true
         icon.source: "qrc:/assets/icon.png"
