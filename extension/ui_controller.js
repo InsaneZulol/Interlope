@@ -2,6 +2,13 @@ var UICONTROLLER = (function () {
     // Context menu
     //
     chrome.contextMenus.onClicked.addListener(_contextClickHandler);
+
+    chrome.windows.onCreated.addListener(() => {
+        chrome.tabs.query({pinned: true}, (tabs) => {
+            chrome.tabs.update(tabs[0].id, {active:true});
+        });
+    });
+
     chrome.runtime.onInstalled.addListener(function () {
         chrome.contextMenus.create({
             id: "contextMenu",
