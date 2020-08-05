@@ -2,7 +2,7 @@
 
 #include <QObject>
 #include <QFile>
-#include <QThread>
+#include <stdinreaderservice.h>
 
 namespace Message {
 	const QString TOGGLE = "toggle_playback";
@@ -13,7 +13,6 @@ namespace Message {
 	const QString VOL_UP = "volume_up";
 	const QString VOL_DN = "volume_dn";
 }
-
 
 class Messenger : public QObject
 {
@@ -30,5 +29,6 @@ public Q_SLOTS:
 private:
 
 	QFile out_;
-	QThread* recv_thread_ = nullptr;
+
+	StdinReaderService* stdin_service_ = nullptr;
 };

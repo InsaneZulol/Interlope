@@ -358,6 +358,7 @@
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
     </ClCompile>
+    <ClCompile Include="stdinreaderservice.cpp" />
     <ClCompile Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey.cpp" />
     <ClCompile Include="vendor\de\skycoder42\qhotkey\QHotkey\qhotkey_win.cpp" />
   </ItemGroup>
@@ -414,6 +415,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="receiverworker.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="stdinreaderservice.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

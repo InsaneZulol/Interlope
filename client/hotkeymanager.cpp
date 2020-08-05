@@ -1,7 +1,7 @@
 #include "hotkeymanager.h"
 
 
-HotkeyManager::HotkeyManager(QObject* parent, Messenger* messenger, QObject* qml_comms)
+HotkeyManager::HotkeyManager(QObject* parent, Messenger* messenger)
     : QObject(parent), messenger_(messenger), settings_() {
     // load settings on startup
     const QKeySequence TEMP_HOTKEY(TEMP_HOTKEY_);
@@ -63,7 +63,6 @@ void HotkeyManager::connectAction(QHotkey* hotkey, const QString& action) {
 
 void HotkeyManager::updateHotkey(QHotkey* hotkey) {
 }
-
 
 
 

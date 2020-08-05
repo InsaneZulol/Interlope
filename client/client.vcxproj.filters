@@ -80,6 +80,9 @@
     <ClCompile Include="receiverworker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stdinreaderservice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="GeneratedFiles\moc_predefs.h.cbt">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="receiverworker.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="stdinreaderservice.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

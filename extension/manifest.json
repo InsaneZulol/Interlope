@@ -16,7 +16,8 @@
         "tabs",
         "activeTab",
         "nativeMessaging",
-        "https://*.youtube.com/watch?v=*"
+        "https://*.youtube.com/watch?v=*",
+        "https://*.open.spotify.com/*"
       ],
       "icons": {
         "16": "icons/16_play.png",

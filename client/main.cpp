@@ -21,11 +21,6 @@ int main(int argc, char *argv[])
             freopen_s(&nerr, "CONOUT$", "w", stderr);
         }
     }
-
-    /// delet
-    AllocConsole();
-    FILE* nerr = nullptr;
-    freopen_s(&nerr, "CONOUT$", "w", stderr);
 #endif
     
     QGuiApplication app(argc, argv);
@@ -45,7 +40,7 @@ int main(int argc, char *argv[])
     QObject* QMLHotkeys = rootObject->findChild<QObject*>("hotkeys");
     QObject* QMLTrayIcon = rootObject->findChild<QObject*>("trayIcon");
 
-    Messenger messenger;
+    Messenger messenger(&app);
 
     QObject::connect(QMLHotkeys, SIGNAL(message(QString)),
         &messenger, SLOT(prepareMessage(QString)), Qt::DirectConnection);

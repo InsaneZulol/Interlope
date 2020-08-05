@@ -1,9 +1,10 @@
 #pragma once
 
 #include <QThread>
+#include <QDebug>
 
-class ReceiverWorker : public QObject
-{
+
+class ReceiverWorker : public QObject {
 	Q_OBJECT
 public:
 	ReceiverWorker();

@@ -11,7 +11,7 @@ public slots:
 	void onClearBinding(qint32 key);
 
 public:
-	explicit HotkeyManager(QObject* parent, Messenger* messenger, QObject* qml_comms);
+	explicit HotkeyManager(QObject* parent, Messenger* messenger);
 	~HotkeyManager();
 
 private:
