@@ -30,5 +30,7 @@ The Interlope client is a native application that registers hotkeys and send mes
 
 tu grafy
 
+<img width="800" height="800" src="images/seq_action_diagram.svg">
+
 ## FAQ
-bez tego F. F.
+heh
