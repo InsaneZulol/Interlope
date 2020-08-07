@@ -5,10 +5,10 @@ import "Key.js" as Logic
 Rectangle {
     id: button;
     objectName: "kbutton";
-    color: "#101011"
     radius: windowRoot.width * sizeRatio / 10;
-    border.color: "#2a2c2e"
-    border.width: windowRoot.width * sizeRatio / 33;
+    color: keyCol;
+    border.color: keyBorderCol
+    border.width: 1;
 
     width:  isVerticalKey
             ? (windowRoot.width * sizeRatio)
@@ -19,6 +19,11 @@ Rectangle {
 
 
     signal clearBinding(keyName: int);
+
+    property color keyCol: "#1e1e1e";
+    property color keyHighlightedCol: "black"
+    property color keyBorderCol: "#3C3C3C";
+    property color actionLabelCol: "white";
 
     property real aspectRatio: 1;
     property real sizeRatio: 0.04;
@@ -59,9 +64,9 @@ Rectangle {
 
     Text {
         text: actionLabel;
-        topPadding: parent.height/10
+        topPadding: parent.height/10;
         anchors.fill: parent;
-        color: "lightblue";
+        color: actionLabelCol;
         fontSizeMode: Text.Fit;
         font.pixelSize: isVerticalKey
                         ? (parent.width/6)
@@ -70,8 +75,10 @@ Rectangle {
         font.family: "Consolas";
         font.italic: true;
         minimumPixelSize: 4;
+        font.weight: Font.Bold;
         horizontalAlignment: Text.AlignHCenter;
         verticalAlignment: Text.AlignTop;
+        elide: Text.ElideRight;
     }
 
     ActionMenu{
@@ -81,11 +88,11 @@ Rectangle {
     states: [
         State {
             name: "ON"
-            PropertyChanges { target: button; color: "#000000"}
+            PropertyChanges { target: button; color: keyHighlightedCol}
         },
         State {
             name: "OUT"
-            PropertyChanges { target: button; color: "#101111"}
+            PropertyChanges { target: button; color: keyCol}
         }
     ]
 

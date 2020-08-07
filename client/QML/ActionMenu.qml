@@ -6,6 +6,11 @@ Menu {
     y: button.height * 0.8
     x: button.width * 0.8
 
+    property color menuBackgroundCol: "#292a2d"
+    property color menuItemHighlitedCol: "#4b4c4f"
+    property color menuBorderCol: "#3c4043"
+
+
     delegate: MenuItem {
         id: menuItem
         font.family: "Segoe UI"
@@ -16,8 +21,8 @@ Menu {
         implicitHeight: 35
         contentItem: Text {
             renderType: Text.NativeRendering
-            leftPadding: menuItem.indicator.width
-            rightPadding: menuItem.arrow.width
+            leftPadding: 5
+            rightPadding: 5
             text: menuItem.text
             font: menuItem.font
             color: "white"
@@ -25,10 +30,13 @@ Menu {
             verticalAlignment: Text.AlignVCenter
             elide: Text.ElideRight
         }
+
         background: Rectangle {
-            implicitWidth: 200
+            implicitWidth: 50
             implicitHeight: 30
-            color: menuItem.highlighted ? "#172325" : "transparent"
+            anchors.fill: parent
+            anchors.margins: 1
+            color: menuItem.highlighted ? menuItemHighlitedCol : "transparent"
         }
 
     }
@@ -92,7 +100,7 @@ Menu {
     MenuSeparator {
         contentItem: Rectangle {
             implicitHeight: 1
-            color: "white"
+            color: menuBorderCol
         }
     }
     Action {
@@ -106,9 +114,9 @@ Menu {
     background: Rectangle {
         implicitWidth: 200
         implicitHeight: 20
-        color: "#131516"
-        border.color: "#0C1114"
-        radius: 6
+        color: menuBackgroundCol
+        border.color: menuBorderCol
+        radius: 1
     }
 
 }

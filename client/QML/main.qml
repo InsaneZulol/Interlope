@@ -13,7 +13,7 @@ ApplicationWindow {
     
     width: 640
     height: 480
-    color: "#252526"
+    color: "#101011"
     onClosing: {
         close.accepted = false
         onTriggered: windowRoot.hide()
