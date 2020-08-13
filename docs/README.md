@@ -13,24 +13,25 @@ Desktop client and Chromium extension. Control your in-browser media stream glob
 </p>
 
 ## How to use
-- Run Client Installer
-- Install the Chromium extension
-- Bind an action to the keys of your choice <br> <img width="200" height="200" src="https://i.imgur.com/4luBMsu.png"> 
-- Pin the tab you wish to control <br> <img width="200" height="200" src="https://i.imgur.com/hBDwbO7.png"> 
+- Install the Interlope Client via the installer
+- Install the Interlope Chromium extension
+- In your browser pin a youtube/spotify tab and move it foremost left.
+  <br><img width="200" height="200" src="images/menu_pin.png"> 
+- The client launches itself on connection with pinned tab. 
+<br><img width="512" height="208" src="images/interlope_ss.png">  
+Bind actions to the keys of your choice, i.e.:
+  <br> <img width="140" height="200" src="images/menu_ss.png"> 
 
 ## Known issues
-- todo
+- It's possible to have two instances of the client running. This will result in the later instance not getting it's hotkeys to fail to register.
 
-## 
 
 ## How it works
 The Interlope chromium extension controls your pinned youtube tab via a content script.
 
 The Interlope client is a native application that registers hotkeys and send messages to the extension via Chrome Native Messaging API.
 
-tu grafy
 
 <img width="800" height="800" src="images/seq_action_diagram.svg">
-
+## How to build
 ## FAQ
-heh
