@@ -34,4 +34,6 @@ The Interlope client is a native application that registers hotkeys and send mes
 
 <img width="800" height="800" src="images/seq_action_diagram.svg">
 ## How to build
+#### Visual Studio:
+#### QtCreator:
 ## FAQ
