@@ -23,7 +23,7 @@ Bind actions to the keys of your choice, i.e.:
   <br> <img width="140" height="200" src="images/menu_ss.png"> 
 
 ## Known issues
-- It's possible to have two instances of the client running. This will result in the later instance not getting it's hotkeys to fail to register.
+- It's possible to have multiple instances of the client running. This will result in the later instance failling to register all hotkeys from settings.
 
 
 ## How it works
