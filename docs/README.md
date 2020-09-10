@@ -1,5 +1,5 @@
 # Interlope
-Desktop client and Chromium extension. Control your in-browser media stream globally with your input of choice.
+Desktop client and Chromium extension. Control your in-browser media stream globally with input of your choice.
 
 <p align="center">
   <img width="200" height="200" src="https://i.imgur.com/1erEAMS.png">
@@ -17,9 +17,9 @@ Desktop client and Chromium extension. Control your in-browser media stream glob
 - Install the Interlope Chromium extension
 - In your browser pin a youtube/spotify tab and move it foremost left.
   <br><img width="200" height="200" src="images/menu_pin.png"> 
-- The client launches itself on connection with pinned tab. 
+- The client launches itself upon succesful connection with pinned tab.
 <br><img width="512" height="208" src="images/interlope_ss.png">  
-Bind actions to the keys of your choice, i.e.:
+- In the client, Bind actions to the keys of your choice, i.e.:
   <br> <img width="140" height="200" src="images/menu_ss.png"> 
 
 ## Known issues
