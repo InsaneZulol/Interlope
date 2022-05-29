@@ -25,7 +25,7 @@ Desktop client and Chromium extension. Control your in-browser media stream glob
 ## Known issues
 - It is possible to have multiple instances of the client running. This will result in the later instance failling to register all the hotkeys from settings.
 - Keypads / * - + keys are not getting registered. Maybe need native bindings?
-
+- "Error: Access to the specified native messaging host is forbidden." - wrong extension id in native_messaging_manifest.json - edit it C:\Program Files\Interlope\native_messaging_manifest.json and [edit id](https://i.imgur.com/d62B8CB.png).
 ## How it works
 The Interlope chromium extension controls your pinned youtube tab via a content script.
 
